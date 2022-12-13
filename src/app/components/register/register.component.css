@@ -1,0 +1,13 @@
+
+.btn{
+    width: 90%;
+    margin-left: 10px;
+}
+
+.errore{
+    border: 1px solid tomato;
+}
+
+:host ::ng-deep .message{
+    color: tomato;
+}

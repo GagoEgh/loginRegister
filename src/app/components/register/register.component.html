@@ -1,0 +1,18 @@
+<div class="form" *ngIf="goTo.goto === 'register'">
+    <p class="container__text">Please register</p>
+    
+    <input placeholder="Username" class="input" 
+    type="text" appErrore [(value)]="username">
+    
+    <input placeholder="Password" class="input"
+    type="text" appZeroLetter [(value)]="password" 
+    appDifference [password]="rePassword" [(rePassword)]="password">
+   
+    <input placeholder="Repeat password" class="input"
+    type="text" appZeroLetter [(value)]="rePassword" 
+     appDifference [password]="password" [(rePassword)]="rePassword">
+    
+    <button class="btn" (click)="register()">submit</button>
+</div>
+
+<app-login *ngIf="goTo.goto === 'login'"></app-login>

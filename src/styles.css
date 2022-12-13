@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container__text{
+    font-size: 20px;
+    color: gray;
+    letter-spacing: 1px;
+    padding: 5px;
+}
+
+
+.input{
+    padding: 5px;
+    margin: 10px;
+    width: 180px;
+    border: none;
+    border-bottom: 1px solid gray;
+    font-size: 16px;
+}
+
+.input:focus{
+    outline: none;
+}
+
+
+.btn{
+    padding: 5px;
+    width: 80px;
+    border: none;
+    border: 1px solid green;
+    background: white;
+    color: green;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.btn:hover{
+    background-color: green;
+    color: white;
+}
+
+
+.errore{
+    border: 1px solid red;
+}

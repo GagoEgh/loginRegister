@@ -1,0 +1,13 @@
+<div class="account" *ngIf="goto.goto==='account'">
+    <ng-content select=".account"></ng-content>
+</div>
+
+<div class="login"  *ngIf="goto.goto==='login'">
+    <ng-content select=".login"></ng-content>
+</div>
+
+<div class="register"  *ngIf="goto.goto==='register'">
+    <ng-content select=".register"></ng-content>
+</div>
+
+
