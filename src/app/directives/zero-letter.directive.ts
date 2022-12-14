@@ -1,4 +1,12 @@
-import { Directive, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  Renderer2
+} from '@angular/core';
 
 @Directive({
   selector: '[appZeroLetter]'
@@ -29,12 +37,9 @@ export class ZeroLetterDirective implements OnInit {
 
   }
 
-
-
   onInput() {
     this.elementRef.nativeElement.addEventListener("input", this.changeValue);
-
   }
 
- 
+
 }

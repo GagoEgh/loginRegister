@@ -6,18 +6,22 @@ import { ILoginOrRegister } from '../models/ILoginOrRegister';
 })
 export class LoginOrRegisterService {
 
-  LoginOr:ILoginOrRegister = {
+  LoginOr: ILoginOrRegister = {
     // login: "login",
     // register: "register",
     // account: "account",
     // goto: "goto",
     // recover: "recover",
-    goto:"account",
+    goto: "account",
     count: 3
   }
 
 
   constructor() { }
 
+  public routingto(rout: string): ILoginOrRegister {
+    this.LoginOr.goto = rout
+    return this.LoginOr
+  }
 
 }

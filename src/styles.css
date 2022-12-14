@@ -48,3 +48,7 @@
 .errore{
     border: 1px solid red;
 }
+
+.language{
+    align-self: end;
+}

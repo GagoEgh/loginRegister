@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ILoginOrRegister } from 'src/app/models/ILoginOrRegister';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { LoginOrRegisterService } from 'src/app/services/loginOrRegister.service';
+import { TranslateService } from 'src/app/services/translate.service';
+
+
 
 
 
@@ -11,21 +13,18 @@ import { LoginOrRegisterService } from 'src/app/services/loginOrRegister.service
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  goTo!: ILoginOrRegister;
-
   constructor(
-    private loginOrRegisterService: LoginOrRegisterService,
+    private _loginOrRegisterService: LoginOrRegisterService,
   ) { }
 
-  ngOnInit(): void {
-    this.goTo = this.loginOrRegisterService.LoginOr
-  }
+
+  ngOnInit(): void {}
 
   gotoLogin() {
-    this.goTo.goto = "login";
+    this._loginOrRegisterService.routingto('login');
   }
 
   gotoRegister() {
-    this.goTo.goto = "register";
+    this._loginOrRegisterService.routingto('register');
   }
 }

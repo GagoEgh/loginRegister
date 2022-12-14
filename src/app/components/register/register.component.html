@@ -1,18 +1,21 @@
-<div class="form" *ngIf="goTo.goto === 'register'">
-    <p class="container__text">Please register</p>
+<div class="form" >
+    <p class="container__text">
+        {{"register.title"|translate}}
+    </p>
     
-    <input placeholder="Username" class="input" 
+    <input [placeholder]="'global.username'|translate" class="input" 
     type="text" appErrore [(value)]="username">
     
-    <input placeholder="Password" class="input"
-    type="text" appZeroLetter [(value)]="password" 
-    appDifference [password]="rePassword" [(rePassword)]="password">
+    <span *ngIf="validLength()" class="message">{{'register.letterErrore'|translate}}</span>
+    <input [placeholder]="'global.password'|translate" class="input"
+    type="text" appZeroLetter [(value)]="password">
    
-    <input placeholder="Repeat password" class="input"
-    type="text" appZeroLetter [(value)]="rePassword" 
-     appDifference [password]="password" [(rePassword)]="rePassword">
+    <input [placeholder]="'register.repeat'|translate" class="input"
+    type="text" appZeroLetter [(value)]="rePassword">
+
+    <p *ngIf="differencePassword()" class="message">{{'register.passwordErrore'|translate}}</p>
     
-    <button class="btn" (click)="register()">submit</button>
+    <button class="btn" (click)="register()">{{'global.submit'|translate}}</button>
 </div>
-<div>sfdaf</div>
-<app-login *ngIf="goTo.goto === 'login'"></app-login>
+
+

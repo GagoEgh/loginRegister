@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ILoginOrRegister } from 'src/app/models/ILoginOrRegister';
-import { IUser } from 'src/app/models/IUser';
+import { Component} from '@angular/core';
 import { LoginOrRegisterService } from 'src/app/services/loginOrRegister.service';
 
 
@@ -9,24 +7,21 @@ import { LoginOrRegisterService } from 'src/app/services/loginOrRegister.service
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   username!: string;
   password!: string;
   rePassword!: string;
-  // user!:IUser
-  inValid!: boolean;
-  goTo!: ILoginOrRegister;
+
   constructor(
-    private loginOrRegisterService: LoginOrRegisterService,
+    private _loginOrRegisterService: LoginOrRegisterService,
   ) { }
 
-  ngOnInit(): void { 
-    this.goTo = this.loginOrRegisterService.LoginOr
-  }
-
-  gotoLogin() {
-    this.goTo.goto = "login";
+  public validLength(): boolean {
+    if (this.username?.length < 3 || this.username?.length > 10) {
+      return true
+    }
+    return false
   }
 
   public differencePassword(): boolean {
@@ -36,9 +31,12 @@ export class RegisterComponent implements OnInit {
     return false
   }
 
-  register() {
-    this.inValid = !this.username || !this.password || !this.rePassword
-    if (this.inValid || this.differencePassword()) {
+  private emptyKey():boolean {
+    return !this.username || !this.password || !this.rePassword
+  }
+
+  public register() {
+    if (this.emptyKey() || this.differencePassword() || this.validLength()) {
       return
     }
 
@@ -47,7 +45,7 @@ export class RegisterComponent implements OnInit {
       password: this.password,
     };
     localStorage.setItem('users', JSON.stringify(user));
-    this.gotoLogin()
+    this._loginOrRegisterService.routingto('login')
   }
 
 

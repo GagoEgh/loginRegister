@@ -12,7 +12,8 @@ import {
   RecoverComponent,
   RegisterComponent
 } from './components/intex';
-import { ErroreLengthDirective, ZeroLetterDirective,DifferenceDirective } from './directives';
+import { ErroreLengthDirective, ZeroLetterDirective} from './directives';
+import { TranslatePipe } from './translate.pipe';
 
 
 
@@ -31,7 +32,7 @@ import { ErroreLengthDirective, ZeroLetterDirective,DifferenceDirective } from '
     RecoverComponent,
     ErroreLengthDirective,
     ZeroLetterDirective,
-    DifferenceDirective,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
