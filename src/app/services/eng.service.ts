@@ -27,6 +27,17 @@ export class EngService {
       letterErrore:"min letter 3, max letter 10",
       passwordErrore:"wrong password"
     },
+    goto:{
+      title:"You have already 3 failed attepms, do you want to register or forgot your password?",
+      register:"Register",
+      forgot:'Forgot',
+      login:'go to Login page'
+    },
+    recover:{
+      title:"Recover password",
+      new:"new password",
+      save:"save"
+    }
    
     
   }

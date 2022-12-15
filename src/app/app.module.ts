@@ -10,12 +10,10 @@ import {
   GotoComponent,
   LoginComponent,
   RecoverComponent,
-  RegisterComponent
+  RegisterComponent,
 } from './components/intex';
 import { ErroreLengthDirective, ZeroLetterDirective} from './directives';
 import { TranslatePipe } from './translate.pipe';
-
-
 
 
 
@@ -32,7 +30,8 @@ import { TranslatePipe } from './translate.pipe';
     RecoverComponent,
     ErroreLengthDirective,
     ZeroLetterDirective,
-    TranslatePipe
+    TranslatePipe,
+
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,18 @@
-<div class="form" >
+<div class="form">
     <p class="container__text">
         {{"register.title"|translate}}
     </p>
-    
+
     <input [placeholder]="'global.username'|translate" class="input" 
     type="text" appErrore [(value)]="username">
-    
     <span *ngIf="validLength()" class="message">{{'register.letterErrore'|translate}}</span>
-    <input [placeholder]="'global.password'|translate" class="input"
-    type="text" appZeroLetter [(value)]="password">
-   
-    <input [placeholder]="'register.repeat'|translate" class="input"
-    type="text" appZeroLetter [(value)]="rePassword">
+    
+    <input [placeholder]="'global.password'|translate" class="input" type="text" appZeroLetter [(value)]="password">
+
+    <input [placeholder]="'register.repeat'|translate" class="input" type="text" appZeroLetter [(value)]="rePassword">
 
     <p *ngIf="differencePassword()" class="message">{{'register.passwordErrore'|translate}}</p>
-    
+
     <button class="btn" (click)="register()">{{'global.submit'|translate}}</button>
 </div>
-
 

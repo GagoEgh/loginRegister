@@ -8,6 +8,3 @@
     border: 1px solid tomato;
 }
 
-:host ::ng-deep .message{
-    color: tomato;
-}

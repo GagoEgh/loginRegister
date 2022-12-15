@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { validLength } from 'src/app/helpers/validLength';
+import { LoginOrRegisterService } from 'src/app/services/loginOrRegister.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  username!: string;
+  password!: string;
+  count = 0;
+  constructor(
+    private _LoginOrRegisterService:LoginOrRegisterService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public validLength(): boolean {
+    return validLength(this.username)
   }
+
+  login() {
+    let jsonUser = localStorage.getItem('users');
+    let user = JSON.parse(jsonUser!);
+
+    if(user.username !==this.username || user.password !== this.password){
+      this.count+=1;
+      if(this.count === 3){
+        this._LoginOrRegisterService.routingto('goto')
+      }
+    }
+  }
+
 
 }

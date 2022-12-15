@@ -13,7 +13,7 @@ export class LoginOrRegisterService {
     // goto: "goto",
     // recover: "recover",
     goto: "account",
-    count: 3
+
   }
 
 

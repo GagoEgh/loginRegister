@@ -1,6 +1,11 @@
 <div class="form">
-    <p class="container__text">Please log in</p>
-    <input placeholder="Username" class="input" type="text">
-    <input placeholder="Password" class="input" type="text">
-    <button class="btn">submit</button>
+    <p class="container__text">
+        {{"login.title"|translate}}
+    </p>
+     <input [placeholder]="'global.username'|translate"
+     class="input" type="text" appErrore [(value)]="username">
+    <span *ngIf="validLength()" class="message">{{'register.letterErrore'|translate}}</span>
+
+    <input [placeholder]="'global.password'|translate" class="input" type="text" appZeroLetter [(value)]="password">
+    <button class="btn" (click)="login()">{{'global.submit'|translate}}</button>
 </div>

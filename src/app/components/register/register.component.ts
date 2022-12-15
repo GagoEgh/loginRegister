@@ -1,6 +1,6 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginOrRegisterService } from 'src/app/services/loginOrRegister.service';
-
+import { validLength } from 'src/app/helpers/validLength';
 
 @Component({
   selector: 'app-register',
@@ -17,11 +17,9 @@ export class RegisterComponent {
     private _loginOrRegisterService: LoginOrRegisterService,
   ) { }
 
+
   public validLength(): boolean {
-    if (this.username?.length < 3 || this.username?.length > 10) {
-      return true
-    }
-    return false
+    return validLength(this.username)
   }
 
   public differencePassword(): boolean {
@@ -31,9 +29,11 @@ export class RegisterComponent {
     return false
   }
 
-  private emptyKey():boolean {
+  private emptyKey(): boolean {
     return !this.username || !this.password || !this.rePassword
   }
+
+
 
   public register() {
     if (this.emptyKey() || this.differencePassword() || this.validLength()) {
@@ -44,6 +44,7 @@ export class RegisterComponent {
       username: this.username,
       password: this.password,
     };
+    
     localStorage.setItem('users', JSON.stringify(user));
     this._loginOrRegisterService.routingto('login')
   }

@@ -1,1 +1,9 @@
-<p>goto works!</p>
+<div class="content">
+    <p class="container__text">{{"goto.title"|translate}}</p>
+    <div class="buttons">
+        <button class="btn"(click)="register()">{{"goto.register"|translate}}</button>
+        <button class="btn"(click)="forgot()">{{"goto.forgot"|translate}}</button>
+    </div>
+ 
+    <span class="container__text" (click)="login()">{{"goto.login"|translate}}</span>
+</div>

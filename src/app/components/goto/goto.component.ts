@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginOrRegisterService } from 'src/app/services/loginOrRegister.service';
 
 @Component({
   selector: 'app-goto',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GotoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _LoginOrRegisterService:LoginOrRegisterService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  register(){
+    this._LoginOrRegisterService.routingto('register')
+  }
+
+  login(){
+    this._LoginOrRegisterService.routingto('login')
+  }
+
+  forgot(){
+    this._LoginOrRegisterService.routingto('recover')
+  }
 }

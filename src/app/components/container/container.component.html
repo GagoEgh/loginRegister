@@ -16,4 +16,12 @@
     <ng-content select=".register"></ng-content>
 </div>
 
+<div class="goto"  *ngIf="goto.goto==='goto'">
+    <ng-content select=".goto"></ng-content>
+</div>
+
+<div class="recover"  *ngIf="goto.goto==='recover'">
+    <ng-content select=".recover"></ng-content>
+</div>
+
 
