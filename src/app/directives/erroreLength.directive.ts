@@ -14,6 +14,7 @@ import {
 })
 export class ErroreLengthDirective implements OnInit {
 
+  // jnjel
   @Input() value!: string;
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 

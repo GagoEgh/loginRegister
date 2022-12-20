@@ -11,6 +11,7 @@ export class EngService {
     global: {
       username: "username",
       password: "password",
+      email:"email",
       submit: "submit"
     },
     account: {
@@ -24,8 +25,6 @@ export class EngService {
     register: {
       title: "Please register",
       repeat: "Repeat password",
-      letterErrore:"min letter 3, max letter 10",
-      passwordErrore:"wrong password"
     },
     goto:{
       title:"You have already 3 failed attepms, do you want to register or forgot your password?",
@@ -37,6 +36,14 @@ export class EngService {
       title:"Recover password",
       new:"new password",
       save:"save"
+    },
+    errore:{
+      password:"wrong password",
+      required:'You must enter a value',
+      requiredLength:'required  letter quant',
+      actualLength: 'your letter actual Length',
+      email:'invalid email',
+      different:'re password is different from a password'
     }
    
     

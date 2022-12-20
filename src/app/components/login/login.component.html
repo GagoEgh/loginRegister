@@ -1,11 +1,42 @@
-<div class="form">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
     <p class="container__text">
         {{"login.title"|translate}}
     </p>
-     <input [placeholder]="'global.username'|translate"
-     class="input" type="text" appErrore [(value)]="username">
-    <span *ngIf="validLength()" class="message">{{'register.letterErrore'|translate}}</span>
 
-    <input [placeholder]="'global.password'|translate" class="input" type="text" appZeroLetter [(value)]="password">
-    <button class="btn" (click)="login()">{{'global.submit'|translate}}</button>
-</div>
+    <div class="controlName">
+        <input type="email" [placeholder]="'global.email'|translate" appTouched [controlName]="getFormCtrl('email')"
+            class="input" formControlName="email">
+        <div class="erroreMessage">
+            <span class="message"
+                *ngIf="controlNameErrore('email','reqiredControl')">
+                {{'errore.required'|translate}}
+            </span>
+            <span class="message" *ngIf="controlNameErrore('email','pattern')">
+                {{'errore.email'|translate}}
+            </span>
+        </div>
+    </div>
+    <div class="controlName">
+        <input [placeholder]="'global.password'|translate" appTouched [controlName]="getFormCtrl('password')"
+            class="input" type="text" formControlName="password">
+        <div class="erroreMessage">
+            <span class="message"
+                *ngIf="controlNameErrore('password','reqiredControl')">
+                {{'errore.required'|translate}}
+            </span>
+            <div class="message"
+                *ngIf="controlNameErrore('password','minlength')">
+                <span>
+                    {{'errore.requiredLength'|translate}}
+                    {{getFormCtrl('password')?.getError('minlength')?.requiredLength}},
+                </span>
+                <br>
+                <span>
+                    {{'errore.actualLength'|translate}}
+                    {{getFormCtrl('password')?.getError('minlength')?.actualLength}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <button class="btn">{{'global.submit'|translate}}</button>
+</form>

@@ -1,18 +1,115 @@
-<div class="form">
+<form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
     <p class="container__text">
         {{"register.title"|translate}}
     </p>
 
-    <input [placeholder]="'global.username'|translate" class="input" 
-    type="text" appErrore [(value)]="username">
-    <span *ngIf="validLength()" class="message">{{'register.letterErrore'|translate}}</span>
-    
-    <input [placeholder]="'global.password'|translate" class="input" type="text" appZeroLetter [(value)]="password">
+    <div class="controlName">
+        <input [placeholder]="'global.username'|translate" class="input" type="text" formControlName="username"
+            appTouched [controlName]="getFormCtrl('username')">
+        <div class="erroreMessage">
+            <span [class.message]="controlNameErrore('username','reqiredControl')"
+                *ngIf="controlNameErrore('username','reqiredControl')">
+                {{'errore.required'|translate}}
+            </span>
 
-    <input [placeholder]="'register.repeat'|translate" class="input" type="text" appZeroLetter [(value)]="rePassword">
+            <div class="message"
+                *ngIf="controlNameErrore('username','minlength')">
+                <span>
+                    {{'errore.requiredLength'|translate}}
+                    {{getFormCtrl('username')?.getError('minlength')?.requiredLength}},
+                </span>
+                <br>
+                <span>
+                    {{'errore.actualLength'|translate}}
+                    {{getFormCtrl('username')?.getError('minlength')?.actualLength}}
+                </span>
+            </div>
 
-    <p *ngIf="differencePassword()" class="message">{{'register.passwordErrore'|translate}}</p>
+            <div class="message"
+                *ngIf="controlNameErrore('username','maxlength')">
+                <span>
+                    {{'errore.requiredLength'|translate}}
+                    {{getFormCtrl('username')?.getError('maxlength')?.requiredLength}},
+                </span>
+                <br>
+                <span>
+                    {{'errore.actualLength'|translate}}
+                    {{getFormCtrl('username')?.getError('maxlength')?.actualLength}}
+                </span>
+            </div>
 
-    <button class="btn" (click)="register()">{{'global.submit'|translate}}</button>
-</div>
+        </div>
+    </div>
 
+    <!--
+            ?????
+            appTouched [controlName]="$any(getFormCtrl('username'))"
+          -->
+    <div class="controlName">
+        <input type="email" [placeholder]="'global.email'|translate" appTouched [controlName]="getFormCtrl('email')"
+            class="input" formControlName="email">
+        <div class="erroreMessage">
+            <span class="message"
+                *ngIf="controlNameErrore('email','reqiredControl')">
+                {{'errore.required'|translate}}
+            </span>
+            <span class="message" *ngIf="controlNameErrore('email','pattern')">
+                {{'errore.email'|translate}}
+            </span>
+        </div>
+    </div>
+    <div class="controlName">
+        <input [placeholder]="'global.password'|translate" appTouched [controlName]="getFormCtrl('password')"
+            class="input" type="text" formControlName="password">
+        <div class="erroreMessage">
+            <span class="message"
+                *ngIf="controlNameErrore('password','reqiredControl')">
+                {{'errore.required'|translate}}
+            </span>
+            <div class="message"
+                *ngIf="controlNameErrore('password','minlength')">
+                <span>
+                    {{'errore.requiredLength'|translate}}
+                    {{getFormCtrl('password')?.getError('minlength')?.requiredLength}},
+                </span>
+                <br>
+                <span>
+                    {{'errore.actualLength'|translate}}
+                    {{getFormCtrl('password')?.getError('minlength')?.actualLength}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="controlName">
+        <input [placeholder]="'register.repeat'|translate" appTouched [controlName]="getFormCtrl('rePassword')"
+            class="input" type="text" formControlName="rePassword">
+        <div class="erroreMessage">
+            <span class="message"
+                *ngIf="controlNameErrore('rePassword','reqiredControl')">
+                {{'errore.required'|translate}}
+            </span>
+            <div class="message"
+                *ngIf="controlNameErrore('rePassword','minlength')">
+                <span>
+                    {{'errore.requiredLength'|translate}}
+                    {{getFormCtrl('rePassword')?.getError('minlength')?.requiredLength}},
+                </span>
+                <br>
+                <span>
+                    {{'errore.actualLength'|translate}}
+                    {{getFormCtrl('rePassword')?.getError('minlength')?.actualLength}}
+                </span>
+            </div>
+            <span class='message' *ngIf="registerForm.getError('difference')">
+                {{'errore.different'|translate}}
+            </span>
+            <span class="message"
+             *ngIf="repeatPassword">
+                poxel password
+            </span>
+        </div>
+    </div>
+
+    <button class="btn">{{'global.submit'|translate}}</button>
+
+</form>

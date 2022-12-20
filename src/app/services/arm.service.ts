@@ -11,6 +11,7 @@ export class ArmService {
     global: {
       username: "օգտագործողի անուն",
       password: "գաղտնաբառ",
+      email:"Էլ. փոստ",
       submit: "ներկայացնել"
     },
     account: {
@@ -24,8 +25,6 @@ export class ArmService {
     register: {
       title: "Խնդրում ենք գրանցվել",
       repeat: "Կրկնեք գաղտնաբառը",
-      letterErrore:"մինիմում տառ 3, առավելագույն տառ 10",
-      passwordErrore:"սխալ գաղտնաբառ"
     },
     goto:{
       title:"Դուք արդեն 3 ձախողված փորձ ունեք, ցանկանու՞մ եք գրանցվել, թե՞ մոռացել եք ձեր գաղտնաբառը",
@@ -37,6 +36,14 @@ export class ArmService {
       title:"Վերականգնել գաղտնաբառը",
       new:"նոր գաղտնաբառ",
       save:"պահպանել"
+    },
+    errore:{
+      password:"սխալ գաղտնաբառ",
+      required:'Դուք պետք է մուտքագրեք արժեքը',
+      requiredLength:'պահանջվող տառերի քանակը',
+      actualLength: 'ձեր նամակի տառերի քանակը',
+      email:'սխալ էլփոստի հասցե',
+      different:'կրկնակի գաղտնաբառը տարբերվում է գաղտնաբառից'
     }
   }
 }

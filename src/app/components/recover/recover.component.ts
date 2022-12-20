@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { validLength } from 'src/app/helpers/validLength';
+
 
 
 
@@ -18,7 +18,7 @@ export class RecoverComponent implements OnInit {
   }
 
   validLength() {
-    return validLength(this.username)
+    return true
   }
 
   save() {
